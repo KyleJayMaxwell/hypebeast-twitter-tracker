@@ -13,12 +13,21 @@ var server = app.listen(3000, function () {
 
 var io = require('socket.io').listen(server);
 
-var client = new Twitter({
-  consumer_key: config.consumer_key,
-  consumer_secret: config.consumer_secret,
-  access_token_key: config.access_token_key,
-  access_token_secret: config.access_token_secret
-});
+if (process.env.NODE_ENV === 'production') {
+  var client = new Twitter({
+    consumer_key: process.env.consumer_key,
+    consumer_secret: process.env.consumer_secret,
+    access_token_key: process.env.access_token_key,
+    access_token_secret: process.env.access_token_secret
+  });
+} else {
+  var client = new Twitter({
+    consumer_key: config.consumer_key,
+    consumer_secret: config.consumer_secret,
+    access_token_key: config.access_token_key,
+    access_token_secret: config.access_token_secret
+  });
+}
 
 var mentions = '@Supreme_NYC, @PALACELONDON, @BAPEOFFICIAL, @COMMEGARCONS, @HYPEBEAST, @highsnobiety';
 
