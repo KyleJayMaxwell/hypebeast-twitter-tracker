@@ -3,27 +3,15 @@
 {% block content %}
 <div ng-app='myApp' ng-controller="mainCtrl">
   <div class='row' style='margin-top: 50px'>
-    <div class='col-md-2 col-lg-4'>
-      <img class='img' src='../img/trump.png'>
-    </div>
-    <div class='col-md-4 col-lg-8'>
-      <span class='name'>#Trump</span>
-      <canvas id="trump" class="chart chart-doughnut"
+    <div class="col-md-12">
+      <h1 class="center">HYPEBEAST MENTION TRACKER</h1>
+      <canvas class="chart chart-polar-area"
       chart-colours='colors' chart-legend="true"
-      chart-data="sandersData" chart-labels="labels">
+      chart-data="brandData" chart-labels="labels">
     </canvas>
+    </div>
   </div>
-  <div class='col-md-2 col-lg-4'>
-    <img class='img' src='../img/sanders.png'>
-  </div>
-  <div class='col-md-4 col-lg-8'>
-    <span class='name'>#FeelTheBern</span>
-    <canvas id="sanders" class="chart chart-doughnut"
-    chart-colours='colors' chart-legend="true"
-    chart-data="trumpData" chart-labels="labels">
-  </canvas>
-</div>
-</div>
+
 <br><br>
 <div class='row'>
   <div class="col-md-12">
@@ -33,12 +21,12 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 panelheader class="panel-title">
-              <a href="https://twitter.com/{{user}}">{{user}}</a></h3>
+              <a href="https://twitter.com/{{user}}">{{ user }}</a></h3>
             </div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-12">
-                      {{tweet}}
+                  {{ tweet }}
                 </div>
               </div>
             </div>
@@ -48,5 +36,7 @@
     </div>
     {% endraw %}
   </div>
+</div>
+
 
   {% endblock %}

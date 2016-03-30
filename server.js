@@ -20,9 +20,9 @@ var client = new Twitter({
   access_token_secret: config.access_token_secret
 });
 
-var hashtags = '#Trump, #FeelTheBern';
+var mentions = '@Supreme_NYC, @PALACELONDON, @BAPEOFFICIAL, @COMMEGARCONS, @HYPEBEAST, @highsnobiety';
 
-client.stream('statuses/filter', {track: hashtags}, function(stream) {
+client.stream('statuses/filter', {track: mentions}, function(stream) {
   stream.on('data', function(tweet) {
     io.emit('newTweet', tweet);
   });
